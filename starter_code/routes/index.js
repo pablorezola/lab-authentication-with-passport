@@ -6,4 +6,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get('/private', [
+  ensureLoggedIn('/passport/login'), 
+] , (req,res) => {
+  res.render('private-page');
+});
+
 module.exports = router;
